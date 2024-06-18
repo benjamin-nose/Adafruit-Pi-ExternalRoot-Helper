@@ -127,8 +127,8 @@ info "fs copy" "This will take quite a while.  Please be patient!"
 
 info "boot config" "Configuring boot from {$target_partition}"
     #rootwait is already in the file and is sufficient
-    cp /boot/cmdline.txt /boot/cmdline.txt.bak
-    sed -i "s|root=PARTUUID=\S\+ |root=PARTUUID=${partition_unique_partuuid} |g" /boot/cmdline.txt
+    cp /boot/firmware/cmdline.txt /boot/firmware/cmdline.txt.bak
+    sed -i "s|root=PARTUUID=\S\+ |root=PARTUUID=${partition_unique_partuuid} |g" /boot/firmware/cmdline.txt
 
 info "boot config" "Commenting out old root partition in /etc/fstab, adding new one"
     # These changes are made on the new drive after copying so that they
@@ -141,7 +141,7 @@ info "boot config" "Commenting out old root partition in /etc/fstab, adding new 
 
 info "boot config" "Ok, your system should be ready. You may wish to check:"
 info "boot config" "  /mnt/etc/fstab"
-info "boot config" "  /boot/cmdline.txt"
+info "boot config" "  /boot/firmware/cmdline.txt"
 info "boot config" "Your new root drive is currently accessible under /mnt."
 info "boot config" "In order to restart with this drive at /, please type:"
 info "boot config" "sudo reboot"
